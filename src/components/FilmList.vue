@@ -28,6 +28,9 @@ export default {
             <div class="col" v-for="film in store.filmList" :key="film.id">
                 <SingleFilm :info="film" />
             </div>
+            <div class="col" v-for="tv in store.tvList" :key="tv.id">
+                <SingleFilm :info="tv" />
+            </div>
 
         </div>
     </section>
