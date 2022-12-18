@@ -1,18 +1,28 @@
 <script >
+import { store } from '../store.js'
+
+export default {
+
+    name: "SearchBar",
 
 
-
-
+    data() {
+        return {
+            store,
+        }
+    }
+}
 
 </script>
 
 <template>
     <form class="row g-3">
         <div class="col-auto">
-            <input type="text" class="form-control" id="inputPassword2" placeholder="Cerca un film">
+            <input v-model="store.query" type="text" class="form-control" id="inputPassword2"
+                placeholder="Cerca un film">
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Vai</button>
+            <button @click.prevent="$emit('search')" type="submit" class="btn btn-primary mb-3">Vai</button>
         </div>
     </form>
 </template>
