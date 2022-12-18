@@ -7,6 +7,7 @@ export const store = reactive({
     // API 
     apiKey: "api_key=ce36e3c5e2b96caed3d113bbe685a349",
     query: "Marvel",
+    img: "https://image.tmdb.org/t/p/w500",
     // API FILMS 
     filmList: [],
     apiURL: " https://api.themoviedb.org/3/search/movie",
