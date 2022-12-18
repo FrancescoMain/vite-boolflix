@@ -16,7 +16,7 @@ export const store = reactive({
 
     // API SERIE TV 
     tvList: [],
-    TVapiURL: " https://api.themoviedb.org/3/search/movie",
+    TVapiURL: " https://api.themoviedb.org/3/search/tv",
     TVparameter: "query",
 
 
