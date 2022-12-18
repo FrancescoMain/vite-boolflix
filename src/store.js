@@ -2,11 +2,23 @@ import { reactive } from 'vue'
 
 export const store = reactive({
     isLoading: true,
+
+
+    // API 
+    apiKey: "api_key=ce36e3c5e2b96caed3d113bbe685a349",
+    query: "Marvel",
+    // API FILMS 
     filmList: [],
     apiURL: " https://api.themoviedb.org/3/search/movie",
-    apiKey: "api_key=ce36e3c5e2b96caed3d113bbe685a349",
     parameter: "query",
-    query: "",
+
+
+    // API SERIE TV 
+    tvList: [],
+    TVapiURL: " https://api.themoviedb.org/3/search/movie",
+    TVparameter: "query",
+
+
     listOfFlags: ["en", "it", "ja", "uk", "fr", "es", "de"],
 
 
