@@ -48,7 +48,7 @@ export default {
         );
     },
     getTv() {
-      let myUrl = `${store.TVapiURL}?${store.apiKey}&${store.TVparameter}=${store.TVquery} `;
+      let myUrl = `${store.TVapiURL}?${store.apiKey}&${store.TVparameter}=${store.query} `;
 
       axios
         .get(myUrl)
