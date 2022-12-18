@@ -7,6 +7,7 @@ export const store = reactive({
     apiKey: "api_key=ce36e3c5e2b96caed3d113bbe685a349",
     parameter: "query",
     query: "",
+    listOfFlags: ["en", "it", "ja", "uk", "fr", "es", "de"],
 
 
     // titolo: "Rick and Morty App",
