@@ -1,5 +1,6 @@
 <script >
 import SingleFilm from '../components/SingleFilm.vue'
+import SingleTv from '../components/SingleTv.vue'
 
 import { store } from "../store.js";
 
@@ -7,7 +8,8 @@ export default {
 
     name: "FilmList",
     components: {
-        SingleFilm
+        SingleFilm,
+        SingleTv
     },
     data() {
         return {
@@ -29,7 +31,7 @@ export default {
                 <SingleFilm :info="film" />
             </div>
             <div class="col" v-for="tv in store.tvList" :key="tv.id">
-                <SingleFilm :info="tv" />
+                <SingleTv :info="tv" />
             </div>
 
         </div>
