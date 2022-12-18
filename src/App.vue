@@ -1,13 +1,13 @@
 <script >
 import axios from "axios";
-import SearchBar from './components/SearchBar.vue'
+import appHead from './components/appHead.vue'
 import FilmList from './components/FilmList.vue'
 import { store } from './store.js'
 export default {
 
   name: "App",
   components: {
-    SearchBar,
+    appHead,
     FilmList
 
   },
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <template>
-  <SearchBar @search="generalGet" />
+  <appHead @search="generalGet" />
   <FilmList />
 </template>
 
