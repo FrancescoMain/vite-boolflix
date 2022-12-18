@@ -46,16 +46,38 @@ export default {
         }
 
         );
+    },
+    getTv() {
+      let myUrl = `${store.TVapiURL}?${store.apiKey}&${store.TVparameter}=${store.TVquery} `;
+
+      axios
+        .get(myUrl)
+        .then(res => {
+          store.tvList = res.data.results
+          store.isLoading = false;
+          // store.totalResults = store.filmList.length;
+        })
+        .catch(err => {
+          console.log("Errori", err);
+        }
+
+        );
+    },
+    generalGet() {
+      this.getTv();
+      this.getFilms();
     }
   },
+
   mounted() {
-    this.getFilms();
+    this.generalGet();
+
   }
-}
+}  
 </script>
 
 <template>
-  <SearchBar @search="getFilms" />
+  <SearchBar @search="generalGet" />
   <FilmList />
 </template>
 
