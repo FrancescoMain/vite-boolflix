@@ -55,7 +55,7 @@ export default {
 </script>
 
 <template>
-  <SearchBar />
+  <SearchBar @search="getFilms" />
   <FilmList />
 </template>
 
