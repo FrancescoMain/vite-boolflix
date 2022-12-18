@@ -7,6 +7,7 @@ export default {
     data() {
         return {
             store,
+            over: false,
         }
     },
     computed: {
@@ -30,53 +31,64 @@ export default {
 
 <template>
 
-    <div class="film text-center">
-        <h2>{{ info.name }}</h2>
-        <h3>{{ info.original_name }}</h3>
-        <img :src="store.img + info.backdrop_path" alt="">
-        <img class="flag" v-if="flagInStore" :src="flagType" alt="">
-        <h4 v-else>{{ info.original_language }}</h4>
-        <div class="stars-wrap">
-            <img v-for="star in stars" src="../../public/img/star.png" alt="" class="star">
+    <li class="film" @mouseover="over = true" @mouseleave="over = false">
+        <div v-if="over" class="info">
+            <div>
+                <span>Titolo: </span>{{ info.name }}
+            </div>
+            <div><span>Titolo Originale: </span>{{ info.original_name }}</div>
+            <span>Lingua Originale: </span> <img class="flag" v-if="flagInStore" :src="flagType" alt="">
+            <div v-else><span>Lingua Originale: </span> {{ info.original_language }}</div>
+            <div class="stars-wrap">
+                <span>Voto: </span>
+                <img v-for="star in stars" src="../../public/img/star.webp" alt="" class="star">
+            </div>
+            <div><span>Overview: </span>{{ info.overview }}</div>
         </div>
 
-    </div>
+        <img :src="store.img + info.poster_path" alt="">
+
+    </li>
 
 
 </template>
 
 <style lang="scss" scoped>
 .film {
+    margin: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    .info {
+        position: absolute;
+        color: rgb(200, 200, 200);
+        width: 300px;
+        height: 500px;
+        background-color: rgba(0, 0, 0, 0.6);
+        font-size: 1rem;
+        padding: 20px;
+        overflow: auto;
 
-    h2,
-    h3,
-    h5 {
-        text-transform: capitalize;
 
-        &::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 1px;
-            margin: 1rem, auto;
+
+        span {
+            color: white;
         }
-    }
 
-    img.flag {
-        border-radius: 50%;
-        box-shadow: 0 0 6px 3px rgba(#000, 0.15);
-        width: 20px;
-        display: block;
 
-    }
+        img.flag {
+            border-radius: 50%;
+            box-shadow: 0 0 6px 3px rgba(#000, 0.15);
+            width: 20px;
 
-    img.star {
-        width: 40px;
+        }
+
+        img.star {
+            width: 40px;
+            color: white;
+        }
     }
 }
 </style>
