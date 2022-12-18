@@ -1,11 +1,28 @@
 <script >
-
+import { store } from '../store.js'
 export default {
 
     name: "SingleFilm",
-    props: ["info"]
+    props: ["info"],
+    data() {
+        return {
+            store,
+        }
+    },
+    computed: {
+        flagInStore() {
+            if (this.store.listOfFlags.includes(this.info.original_language)) {
+                return true
+            }
 
+        },
+        flagType() {
+            return `../../public/img/flag/${this.info.original_language}.png `
+        }
+    }
 }
+
+
 </script>
 
 <template>
@@ -13,7 +30,8 @@ export default {
     <div class="film text-center">
         <h2>{{ info.title }}</h2>
         <h3>{{ info.original_title }}</h3>
-        <h4>{{ info.original_language }}</h4>
+        <img v-if="flagInStore" :src="flagType" alt="">
+        <h4 v-else>{{ info.original_language }}</h4>
         <h5>{{ info.vote_average }}</h5>
     </div>
 
@@ -21,7 +39,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-h4 {
+h2,
+h3,
+h5 {
     text-transform: capitalize;
 
     &::after {
@@ -36,5 +56,6 @@ h4 {
 img {
     border-radius: 50%;
     box-shadow: 0 0 6px 3px rgba(#000, 0.15);
+    width: 20px;
 }
 </style>
