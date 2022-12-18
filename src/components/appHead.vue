@@ -21,7 +21,7 @@ export default {
         <div class="row">
             <div class="col-auto">
                 <input v-model="store.query" class="form-control" placeholder="Cerca un film"
-                    @keyup.enter.prevent="$emit('search')">
+                    @keyup.prevent="$emit('search')">
             </div>
         </div>
     </div>
