@@ -26,15 +26,15 @@ export default {
 
 <template>
     <section class="container">
-        <div class="row">
-            <div class="col" v-for="film in store.filmList" :key="film.id">
-                <SingleFilm :info="film" />
-            </div>
-            <div class="col" v-for="tv in store.tvList" :key="tv.id">
-                <SingleTv :info="tv" />
-            </div>
+        <ul class="row">
 
-        </div>
+            <SingleFilm :info="film" class="col" v-for="film in store.filmList" :key="film.id" />
+
+
+            <SingleTv :info="tv" class="col" v-for="tv in store.tvList" :key="tv.id" />
+
+
+        </ul>
     </section>
 </template>
 
