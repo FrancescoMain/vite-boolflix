@@ -63,7 +63,9 @@ export default {
 </script>
 
 <template>
-  <appHead @search="generalGet" />
+  <header>
+    <appHead @search="generalGet" />
+  </header>
   <FilmList />
 </template>
 
